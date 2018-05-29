@@ -5,6 +5,7 @@ import Link from 'gatsby-link';
 import Results from '../components/Results';
 
 import './main.scss';
+import search from '../assets/search.svg';
 
 class IndexPage extends React.Component {
   constructor(props) {
@@ -38,6 +39,7 @@ class IndexPage extends React.Component {
     console.log(this.state);
     return (
       <div className="container">
+        <img src={search} alt="search" className="search-icon" />
         <h1>Wikipedia Viewer</h1>
         <div className="search-container">
           <form className="search-container__form" onSubmit={this.wikiSearch}>
