@@ -4,8 +4,8 @@ class Result extends React.Component {
   render() {
     return (
       <a href={this.props.url}>
-        <div>
-          <h2>{this.props.title}</h2>
+        <div className="results-divs">
+          <h3>{this.props.title}</h3>
           <p>{this.props.description}</p>
         </div>
       </a>

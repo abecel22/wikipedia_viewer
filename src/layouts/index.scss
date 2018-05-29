@@ -1,3 +1,7 @@
+$primary-color: #4c4947;
+$secondary-color: #efefef;
+$font-primary: #6ead3a;
+
 /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -22,6 +26,7 @@ html {
 
 body {
   margin: 0;
+  background: $primary-color;
 }
 
 /**
@@ -340,4 +345,18 @@ template {
 
 [hidden] {
   display: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid $font-primary;
+  -webkit-text-fill-color: $font-primary;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  transition: background-color 5000s ease-in-out 0s;
 }

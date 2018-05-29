@@ -4,6 +4,8 @@ import Link from 'gatsby-link';
 
 import Results from '../components/Results';
 
+import './main.scss';
+
 class IndexPage extends React.Component {
   constructor(props) {
     super(props);
@@ -35,12 +37,20 @@ class IndexPage extends React.Component {
   render() {
     console.log(this.state);
     return (
-      <div>
+      <div className="container">
         <h1>Wikipedia Viewer</h1>
         <div className="search-container">
-          <form action="" onSubmit={this.wikiSearch}>
-            <input type="text" name="term" />
-            <input type="submit" value="submit" />
+          <form className="search-container__form" onSubmit={this.wikiSearch}>
+            <input
+              type="text"
+              name="term"
+              className="search-container__input"
+            />
+            <input
+              type="submit"
+              value="Go!"
+              className="search-container__button"
+            />
           </form>
         </div>
         <Results results={this.state.results} />
