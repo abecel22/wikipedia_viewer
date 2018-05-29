@@ -2,14 +2,14 @@ import React from 'react';
 import Component from 'react';
 import Link from 'gatsby-link';
 
-import List from '../components/List';
+import Results from '../components/Results';
 
 class IndexPage extends React.Component {
   constructor(props) {
     super(props);
     this.wikiSearch = this.wikiSearch.bind(this);
     this.state = {
-      names: [],
+      results: ['', [], [], []],
     };
   }
 
@@ -26,13 +26,14 @@ class IndexPage extends React.Component {
       .then(myJson => {
         console.log(myJson);
         this.setState({
-          names: myJson[1],
+          results: myJson,
         });
       })
       .catch(error => console.error('Error:', error));
   }
 
   render() {
+    console.log(this.state);
     return (
       <div>
         <h1>Wikipedia Viewer</h1>
@@ -42,7 +43,7 @@ class IndexPage extends React.Component {
             <input type="submit" value="submit" />
           </form>
         </div>
-        <List names={this.state.names} />
+        <Results results={this.state.results} />
       </div>
     );
   }
