@@ -16,6 +16,7 @@ class IndexPage extends React.Component {
     this.state = {
       results: ['', [], [], []],
       random: '',
+      pageID: '',
     };
   }
 
@@ -39,8 +40,6 @@ class IndexPage extends React.Component {
   }
 
   getRandomArticle() {
-    console.log('clicked');
-
     fetch(
       `https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&generator=random&grnnamespace=0`
     )
@@ -49,10 +48,11 @@ class IndexPage extends React.Component {
       })
       .then(myJson => {
         for (const prop in myJson.query.pages) {
-          console.log(myJson.query.pages[prop]);
-          let value = myJson.query.pages[prop].extract;
+          let extract = myJson.query.pages[prop].extract;
+          let id = myJson.query.pages[prop].pageid;
           this.setState({
-            random: value,
+            random: extract,
+            pageID: id,
           });
         }
       })
@@ -60,11 +60,10 @@ class IndexPage extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className="container">
         <img src={search} alt="search" className="search-icon" />
-        <h1>Wikipedia Viewer</h1>
+        <h1 className="search-title">Wikipedia Viewer</h1>
         <h2 className="search-prompt">I want to learn about</h2>
         <div className="search-container">
           <form className="search-container__form" onSubmit={this.wikiSearch}>
@@ -88,7 +87,9 @@ class IndexPage extends React.Component {
           </form>
         </div>
         {this.state.random !== '' ? (
-          <Random random={this.state.random} />
+          <a href={'http://en.wikipedia.org/?curid=' + this.state.pageID}>
+            <Random random={this.state.random} />
+          </a>
         ) : (
           <div />
         )}
