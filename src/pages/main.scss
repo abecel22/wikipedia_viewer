@@ -8,8 +8,8 @@
     margin: 0 auto;
     display: block;
     transition: all 1s ease;
-    :hover {
-      transform: scale(1.3);
+    &:hover {
+      transform: scale(1.1);
     }
   }
   .search-title {
@@ -20,6 +20,7 @@
   .search-prompt {
     color: $font-primary;
     text-align: center;
+    font-size: 1.2em;
     margin: 2%;
   }
   .search-container__form {
@@ -28,27 +29,46 @@
     margin-bottom: 5%;
   }
   .search-container__input {
-    width: 90%;
+    width: 76%;
     background-color: $font-primary;
-    font-size: 1.5em;
+    display: block;
+    margin: 0 auto;
+    font-size: 1.1em;
+    border: 1px solid $font-primary;
+    padding: 1% 2%;
+    color: $secondary-color;
+    cursor: text;
+    box-shadow: 2px 4px 6px $shadow;
+    &:focus {
+      outline: none;
+    }
   }
   .search-container__button {
     background: $secondary-color;
     color: $font-primary;
-    font-size: 1.1em;
-    margin: 3% 1%;
-    width: 20%;
-    padding: 4px;
+    font-size: 1em;
+    margin: 3% 1% 0 1%;
+    width: 200px;
+    padding: 7px 8px;
+    border: 1px solid $secondary-color;
+    border-radius: 3px;
+    cursor: pointer;
+    box-shadow: 2px 4px 6px $shadow;
+    outline: none;
+    &:hover {
+      border: 1px solid darken($secondary-color, 10%);
+      background: lighten($secondary-color, 5%);
+    }
   }
 
   .results {
-    margin: 2% 0;
+    margin: 6% 0;
     a {
-      color: darken($color: $secondary-color, $amount: 10%);
+      color: darken($secondary-color, 10%);
       text-decoration: none;
-      transition: all 0.6s ease;
+      transition: all 1s ease;
       :hover {
-        background: darken($color: $font-primary, $amount: 5%);
+        background: lighten($font-primary, 2%);
       }
     }
     .results-divs {
@@ -67,7 +87,7 @@ a {
   transition: all 0.6s ease;
   cursor: pointer;
   :hover {
-    background: lighten($color: $font-primary, $amount: 2%);
+    background: lighten($font-primary, 2%);
   }
   .random-div {
     background: $font-primary;
