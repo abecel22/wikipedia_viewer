@@ -34,9 +34,12 @@ class IndexPage extends React.Component {
         console.log(myJson);
         this.setState({
           results: myJson,
+          random: '',
+          pageID: '',
         });
       })
       .catch(error => console.error('Error:', error));
+    e.target.elements.term.value = '';
   }
 
   getRandomArticle() {
@@ -51,6 +54,7 @@ class IndexPage extends React.Component {
           let extract = myJson.query.pages[prop].extract;
           let id = myJson.query.pages[prop].pageid;
           this.setState({
+            results: ['', [], [], []],
             random: extract,
             pageID: id,
           });
